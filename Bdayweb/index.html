@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100d27"><meta name="description" content="A little birthday surprise for Justin.">
+  <title>A little surprise for Justin ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas><canvas id="fireworks" aria-hidden="true"></canvas>
+  <div class="ambient" aria-hidden="true"></div>
+  <main id="app">
+    <section class="scene active" id="welcome" aria-label="Welcome">
+      <div class="welcome-card glass"><span class="eyebrow">A LITTLE MIDNIGHT MAGIC</span><h1>Hey, Justin! <span class="pink">♡</span></h1><p>Someone prepared a little surprise for you...</p><button class="primary" id="start">LET’S START! <span>✨</span></button><div class="tiny-note">best experienced with sound on</div></div>
+      <div class="scroll-hint">YOUR MOMENT IS WAITING <span>✦</span></div>
+    </section>
+    <section class="scene countdown" id="countdown"><div class="count-number" id="countNumber">3</div><p>A little magic, just for you</p></section>
+    <section class="scene celebration" id="celebration"><div class="celebrate-content"><span class="eyebrow">A LITTLE MIDNIGHT MAGIC</span><h2 id="happyTitle"><span>HAPPY BIRTHDAY</span><strong>JUSTIN!!! <i>♡</i></strong></h2><p>The stars have a surprise for you...</p><button class="text-button fireworks-next" id="continueFireworks">CONTINUE FOR MORE SURPRISE <span>↓</span></button></div></section>
+    <section class="scene cake-scene" id="cakeScene" aria-label="Make a birthday wish">
+      <div class="solo-cake-wrap">
+        <div class="cake-experience" id="cakeExperience"><div class="cake-stage">
+          <div class="candle-row" aria-hidden="true"><span class="smoke" style="--smoke-delay:0s"></span><span class="smoke" style="--smoke-delay:.12s"></span><span class="smoke" style="--smoke-delay:.24s"></span><span class="cake-candle"><i class="flame"></i></span><span class="cake-candle"><i class="flame"></i></span><span class="cake-candle"><i class="flame"></i></span></div>
+          <button class="birthday-cake" id="birthdayCake" aria-label="Tap the cake to blow out the candles" aria-pressed="false"><span class="cake-top"><i>♡</i><i>✦</i><i>♡</i></span><span class="cake-middle"></span><span class="cake-bottom"></span><span class="cake-plate"></span><span class="cake-click-hint">tap the cake to make a wish</span></button>
+          <span class="cake-wind" aria-hidden="true">〰</span><div class="cake-hearts" id="cakeHearts" aria-hidden="true"></div>
+        </div></div>
+      </div>
+    </section>
+    <section class="scene special-scene" id="specialScene"><div class="final-card glass"><span class="eyebrow">A WISH MADE JUST FOR YOU</span><h2>Happy Birthday,<br><em>Justin! 💗</em></h2><p>Make a wish, Justin! 🎂💗</p><p>One wish, a thousand stars, and endless happiness for you, Justin. Happy Birthday! 💗</p><p>May all your wishes come true. You deserve all the happiness in the world! ✨</p><button class="primary pulse-button" id="continueSurprise">Continue Your Surprise <span>✨</span></button></div></section>
+    <section class="scene journal" id="journal">
+      <div class="journal-inner"><span class="eyebrow">A DATE WRITTEN IN THE STARS</span><h2>Your very own <em>birthday page</em></h2>
+        <div class="journal-layout" id="journalLayout">
+        <div class="calendar glass"><div class="calendar-heading"><span>✧ &nbsp; YOUR BIRTHDAY JOURNAL &nbsp; ✧</span><h3>NOVEMBER <b>2001</b></h3><div class="calendar-rule"></div></div>
+          <div class="weekdays"><span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span></div><div class="days" id="days"></div><p class="calendar-caption">A special day worth celebrating. <span>♡</span></p>
+        </div>
+        <div class="envelope-area"><button class="envelope" id="openLetter" aria-label="Open your birthday letter"><span class="env-back"></span><span class="env-letter">♡</span><span class="env-front"></span><span class="env-flap"></span><span class="env-seal">✦</span><span class="mail-notice">♥</span></button><p>You have a little message 💌</p><small>tap the envelope to open</small></div></div>
+        <div class="heart-zone" id="heartZone"><p class="heart-prompt">A few little reminders, whenever you need them</p><div id="hearts" class="hearts"></div></div>
+        <button class="primary final-button" id="toFinal">A LITTLE MORE MAGIC <span>✨</span></button>
+      </div>
+    </section>
+    <section class="scene final-scene" id="final"><div class="final-card glass"><span class="eyebrow">WITH SO MUCH LOVE</span><h2>Once again,<br><em>HAPPY BIRTHDAY,</em><br>JUSTIN! <span class="pink">♡</span></h2><p>May your days be filled with happiness, love, good health, and endless blessings.</p><button class="primary" id="replay">EXPERIENCE THE SURPRISE AGAIN <span>✨</span></button></div></section>
+  </main>
+  <audio id="backgroundMusic" preload="metadata" src="OTSO OTSO - bayani Agbayani (karaoke version) 🎶.mp3"></audio>
+  <div class="music glass" aria-label="Music controls"><span class="music-note">♫</span><button id="playMusic" aria-label="Play music">▶</button><button id="muteMusic" aria-label="Mute music">◖))</button><input id="volume" type="range" min="0" max="1" step="0.01" value="0.2" aria-label="Volume"></div>
+  <div class="modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle"><div class="modal-backdrop"></div><article class="letter-card"><button class="close-modal" aria-label="Close letter">×</button><span class="letter-spark">✧ &nbsp; A LETTER FOR YOU &nbsp; ✧</span><h2 id="letterTitle">Happy birthday, Justin</h2><p id="letterText"></p><div class="letter-heart">♡</div></article></div>
+  <div class="modal" id="quoteModal" role="dialog" aria-modal="true"><div class="modal-backdrop"></div><article class="quote-card"><button class="close-modal" aria-label="Close message">×</button><span class="quote-spark">A LITTLE REMINDER FOR YOU</span><p id="quoteText"></p><small id="quoteRef"></small><div class="letter-heart">♡</div></article></div>
+  <script src="script.js"></script>
+</body></html>
